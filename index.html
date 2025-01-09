@@ -10,8 +10,46 @@
       <!-- Marca patrón personalizado -->
       <a-marker type="pattern" url="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/three.js/examples/marker-training/examples/pattern-files/pattern-hiro.patt">
         <a-image src="./SB.png" position="0 0.5 0" rotation="-90 0 0" width="1" height="1"></a-image>
+        <!-- Controlador de audio -->
+        <a-entity id="audio" sound="src: url(SB.mp3); autoplay: false;"></a-entity>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
+
+    <!-- Botón para activar audio -->
+    <button id="playAudio" style="position: absolute; top: 10px; left: 10px; z-index: 100;">
+      Activar Audio
+      </button>
+
+<script>
+  // Agregar interacción para reproducir audio
+  document.querySelector('#playAudio').addEventListener('click', function () {
+    const audioEl = document.querySelector('#audio');
+    audioEl.components.sound.playSound();
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('#playAudio').addEventListener('click', function () {
+    const audioEl = document.querySelector('#audio');
+    if (audioEl) {
+      audioEl.components.sound.playSound();
+    }
+  });
+});
+//Verificar que cargo el audio
+const audioEl = document.querySelector('#audio');
+
+  audioEl.addEventListener('sound-loaded', () => {
+    console.log('El archivo de audio está cargado.');
+  });
+
+  document.querySelector('#playAudio').addEventListener('click', () => {
+    if (audioEl.components.sound.isLoaded) {
+      audioEl.components.sound.playSound();
+    } else {
+      console.warn('El archivo de audio no está completamente cargado.');
+    }
+  });
+</script>
+
   </body>
 </html>
