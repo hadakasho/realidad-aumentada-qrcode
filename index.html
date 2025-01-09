@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head> <link rel="icon" href="data:,">
+    <title>Experiencia AR con QR</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.min.js"></script>
+  </head>
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs>
+      <!-- Marca patrón personalizado -->
+      <a-marker type="pattern" url="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/three.js/examples/marker-training/examples/pattern-files/pattern-hiro.patt">
+        <a-image src="./SB.png" position="0 0.5 0" rotation="-90 0 0" width="1" height="1"></a-image>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
