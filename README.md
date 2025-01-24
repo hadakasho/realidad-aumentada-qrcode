@@ -1,2 +1,2 @@
-# realidad-aumentada-qrcode
+# RA-Frontend
 Proyecto realidad aumetada UNETI
